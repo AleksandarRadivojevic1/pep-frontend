@@ -3,5 +3,5 @@
 </script>
 
 <template>
-
+    Ovo je iz home template-a
 </template>
