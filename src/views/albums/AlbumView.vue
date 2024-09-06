@@ -26,7 +26,6 @@ async function removeAlbum(model: AlbumModel) {
                     <th scope="col">Album Image</th>
                     <th scope="col">Album Name </th>
                     <th scope="col">Album Genre</th>
-                    <th scope="col">Release Date</th>
                     <th scope="col">Artist Name</th>
                     <th scope="col">Options</th>
                 </tr>
@@ -39,10 +38,9 @@ async function removeAlbum(model: AlbumModel) {
                     </td>
                     <td>{{ a.albumName }}</td>
                     <td>{{ a.albumGenre }}</td>
-                    <td>{{ a.releaseDate }}</td>
                     <td>{{ a.artist.artistName }}</td>
                     <td>
-                        <RouterLink class="btn btn-sm btn-primary" :to="`/albums/${a.albumId}`">
+                        <RouterLink class="btn btn-sm btn-primary me-2" :to="`/albums/${a.albumId}`">
                             <i class="fa-regular fa-lightbulb"></i>
                         </RouterLink>
                         <button type="button" class="btn btn-sm btn-danger" @click="removeAlbum(a)">

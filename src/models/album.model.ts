@@ -5,6 +5,14 @@ export interface AlbumModel{
     albumImage:string,
     albumName:string,
     albumGenre:string,
-    releaseDate:Date,
     artist:ArtistModel
 }
+
+
+export interface CreateAlbumModel {
+    albumImage: string;
+    albumName: string;
+    albumGenre: string;
+    artistId: number;
+  }
+  

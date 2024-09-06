@@ -40,33 +40,32 @@ const toggleSongs = async (albumId: number) => {
 
 <template>
   <div v-if="albums.length">
-    <h1 class="h3 mb-3" >Songs</h1>
+    <h1 class="h3 mb-3">Songs</h1>
     <div v-for="album in albums" :key="album.albumId">
       <div class="card mb-3">
-        <div class="card-header" :id="'heading' + album.albumId">
+        <div class="card-header d-flex justify-content-between align-items-center mb-2" :id="'heading' + album.albumId">
           <h5 class="mb-0">
-            <button
-              class="btn btn-link"
-              type="button"
-              @click="toggleSongs(album.albumId)"
+            <button class="btn btn" type="button" @click="toggleSongs(album.albumId)"
               :aria-expanded="openAlbumId === album.albumId ? 'true' : 'false'"
-              :aria-controls="'collapse' + album.albumId"
-            >
+              :aria-controls="'collapse' + album.albumId">
               <img :src="album.albumImage" alt="album image" style="max-width: 100px;">
               {{ album.albumName }}
             </button>
           </h5>
+          <RouterLink :to="`/songs/add?albumId=${album.albumId}`" class="btn btn-primary ">
+            <i class="fa-solid fa-plus"></i> Add New Song
+          </RouterLink>
         </div>
-        <div
-          :id="'collapse' + album.albumId"
-          class="collapse"
-          :class="{ show: openAlbumId === album.albumId }"
-          :aria-labelledby="'heading' + album.albumId"
-        >
+        <div :id="'collapse' + album.albumId" class="collapse" :class="{ show: openAlbumId === album.albumId }"
+          :aria-labelledby="'heading' + album.albumId">
           <div class="card-body">
             <ul v-if="songs[album.albumId] && songs[album.albumId].length">
-              <li v-for="song in songs[album.albumId]" :key="song.songId">
+              <li v-for="song in songs[album.albumId]" :key="song.songId"
+                class="d-flex justify-content-between align-items-center mb-2">
                 {{ song.name }}
+                <RouterLink :to="`/songs/${song.songId}`" class="btn btn-sm btn-primary ms-2">
+                  Edit
+                </RouterLink>
               </li>
             </ul>
             <div v-else>
@@ -81,5 +80,3 @@ const toggleSongs = async (albumId: number) => {
     Getting all albums... Please wait...
   </div>
 </template>
-
-

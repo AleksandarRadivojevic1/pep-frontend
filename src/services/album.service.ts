@@ -1,5 +1,5 @@
 import { useAxios } from "./main.service";
-import type { AlbumModel } from "@/models/album.model";
+import type { AlbumModel, CreateAlbumModel } from "@/models/album.model";
 
 export class AlbumService {
     static async getAllAlbums() {
@@ -10,8 +10,11 @@ export class AlbumService {
         return await useAxios(`/albums/${id}`);
     }
 
+    static async createAlbum(data: CreateAlbumModel) {
+        return await useAxios('/albums', 'post', data);
+    }
+
     static async updateAlbum(id: number, data: AlbumModel | undefined) {
-        console.log('Sending data to update:', data); 
         return await useAxios(`/albums/${id}`, 'put', data);
     }
 

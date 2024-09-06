@@ -18,6 +18,9 @@
               <RouterLink class="nav-link" to="/">Home</RouterLink>
             </li>
             <li class="nav-item">
+              <RouterLink class="nav-link" to="/artists">Artists</RouterLink>
+            </li>
+            <li class="nav-item">
               <RouterLink class="nav-link" to="/albums">Albums</RouterLink>
             </li>
             <li class="nav-item">
