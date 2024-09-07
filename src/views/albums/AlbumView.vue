@@ -41,7 +41,7 @@ async function removeAlbum(model: AlbumModel) {
                     <td>{{ a.artist.artistName }}</td>
                     <td>
                         <RouterLink class="btn btn-sm btn-primary me-2" :to="`/albums/${a.albumId}`">
-                            <i class="fa-regular fa-lightbulb"></i>
+                            <i class="fa-regular fa-pen-to-square"></i>
                         </RouterLink>
                         <button type="button" class="btn btn-sm btn-danger" @click="removeAlbum(a)">
                             <i class="fa-solid fa-trash"></i>

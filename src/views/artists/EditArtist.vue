@@ -31,6 +31,9 @@ async function updateArtist() {
 <template>
   <div class="container mt-5" v-if="artist">
     <h1 class="h3">Edit Artist</h1>
+    <RouterLink class="btn btn-primary mb-3 mt-2" to="/artists">
+        <i class="fa-regular fa-circle-left"></i> Return To Artists
+    </RouterLink>
     <form @submit.prevent="updateArtist" class="form-container">
       <div class="form-group mb-3">
         <label for="artistImage" class="form-label">Artist Image:</label>
@@ -64,7 +67,7 @@ async function updateArtist() {
   margin: auto;
 }
 .form-container {
-  background-color: #2b0101;
+  background-color: #371a025b;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(50, 49, 49, 0.1);

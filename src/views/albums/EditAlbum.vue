@@ -68,14 +68,15 @@ function updateAlbum() {
 
 <style scoped>
 .edit-album-form {
-  max-width: auto;
-  margin: auto;
+    max-width: auto;
+    margin: auto;
 }
+
 .edit-album-form {
-  background-color: #2b0101;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(50, 49, 49, 0.1);
+    background-color: #371a025b;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(50, 49, 49, 0.1);
 
 }
 </style>

@@ -59,7 +59,7 @@ async function removeArtist(model: ArtistModel) {
                     <td>
                         <div class="d-flex gap-2">
                             <RouterLink class="btn btn-sm btn-primary" :to="`/artists/${ar.artistId}`">
-                                <i class="fa-regular fa-lightbulb"></i>
+                                <i class="fa-regular fa-pen-to-square"></i>
                             </RouterLink>
                             <button type="button" class="btn btn-sm btn-danger" @click="removeArtist(ar)">
                                 <i class="fa-solid fa-trash"></i>

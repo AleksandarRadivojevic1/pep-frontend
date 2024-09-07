@@ -8,17 +8,17 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const newAlbum = ref<AlbumModel >({
-  albumId: 0, 
+const newAlbum = ref<AlbumModel>({
+  albumId: 0,
   albumImage: '',
   albumName: '',
   albumGenre: '',
   artist: {
     artistId: 0,
-    artistImage:'0',
+    artistImage: '0',
     artistName: '',
-    artistGenre:'',
-    artistBio:''
+    artistGenre: '',
+    artistBio: ''
   }
 });
 
@@ -43,12 +43,12 @@ async function createAlbum() {
     albumImage: newAlbum.value.albumImage,
     albumName: newAlbum.value.albumName,
     albumGenre: newAlbum.value.albumGenre,
-    artistId: newAlbum.value.artist.artistId, 
+    artistId: newAlbum.value.artist.artistId,
   };
 
   try {
     await AlbumService.createAlbum(album);
-    router.push('/albums'); 
+    router.push('/albums');
   } catch (error) {
     console.error('Error creating album:', error);
   }
@@ -60,7 +60,7 @@ async function createAlbum() {
   <div class="add-album-form">
     <h1 class="h3">Add New Album</h1>
     <RouterLink class="btn btn-primary mb-3 mt-2" to="/albums">
-        <i class="fa-regular fa-circle-left"></i> Return To Albums
+      <i class="fa-regular fa-circle-left"></i> Return To Albums
     </RouterLink>
     <form @submit.prevent="createAlbum">
       <div class="mb-3">
@@ -96,12 +96,12 @@ async function createAlbum() {
   max-width: auto;
   margin: auto;
 }
+
 .add-album-form {
-  background-color: #2b0101;
+  background-color: #2e01012f;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(50, 49, 49, 0.1);
 
 }
 </style>
-
