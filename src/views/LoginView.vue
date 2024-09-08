@@ -17,7 +17,7 @@ async function doLogin() {
         const rsp = await login(username.value, password.value)
         AuthService.saveAuth(rsp.data)
         router.push({
-            path: '/artists/new'
+            path: '/'
         })
     } catch (e) {
         alert(e)
@@ -29,7 +29,7 @@ async function doLogin() {
 
 <template>
 
-    <div>
+    <div class="login-form">
         <h1 class="h3 text-center">Praktikum - Sistemi e-poslovanja <br>Login</h1>
         <form v-on:submit.prevent="doLogin">
             <div class="mb-3">
@@ -44,3 +44,17 @@ async function doLogin() {
         </form>
     </div>
 </template>
+
+<style scoped>
+.login-form {
+    max-width: 600px;
+    margin: auto;
+}
+
+.login-form {
+    background-color: #371a025b;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(50, 49, 49, 0.1);
+}
+</style>

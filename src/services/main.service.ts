@@ -48,6 +48,7 @@ export async function useAxios(path: string, method = 'get', payload = {}) {
 
     if (rsp.status == 401){
         window.location.href = "/login"
+        return
 
     }
 
@@ -58,7 +59,7 @@ export async function useAxios(path: string, method = 'get', payload = {}) {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
-                    'Authorization': `Bearer${AuthService.getRefreshToken()}`
+                    'Authorization': `Bearer ${AuthService.getRefreshToken()}`
 
                 }
             })
@@ -69,7 +70,7 @@ export async function useAxios(path: string, method = 'get', payload = {}) {
                 method: method,
                 headers: {
                     'Accept': 'application/json',
-                    'Authorization': `Bearer${AuthService.getAccessToken()}`
+                    'Authorization': `Bearer ${AuthService.getAccessToken()}`
 
                 },
                 data: payload
