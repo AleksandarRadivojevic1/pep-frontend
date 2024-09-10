@@ -4,7 +4,17 @@ import { ArtistService } from '@/services/artist.service';
 import { ref } from 'vue';
 
 const artists = ref<ArtistModel[]>();
-ArtistService.getAllArtists().then(rsp => artists.value = rsp.data);
+    ArtistService.getAllArtists()
+  .then(rsp => {
+    if (rsp && rsp.data) {
+      artists.value = rsp.data;
+    } else {
+      console.error('Error: No data returned from the server.');
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching artists:', error);
+  });
 
 const expandedBio = ref<number | null>(null);
 
@@ -12,7 +22,7 @@ function toggleBio(id: number) {
     expandedBio.value = expandedBio.value === id ? null : id;
 }
 
-async function removeArtist(model: ArtistModel) {
+async function deleteArtist(model: ArtistModel) {
     await ArtistService.deleteArtist(model.artistId);
     artists.value = artists.value?.filter(ar => ar.artistId !== model.artistId);
 }
@@ -61,7 +71,7 @@ async function removeArtist(model: ArtistModel) {
                             <RouterLink class="btn btn-sm btn-primary" :to="`/artists/${ar.artistId}`">
                                 <i class="fa-regular fa-pen-to-square"></i>
                             </RouterLink>
-                            <button type="button" class="btn btn-sm btn-danger" @click="removeArtist(ar)">
+                            <button type="button" class="btn btn-sm btn-danger" @click="deleteArtist(ar)">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
                         </div>

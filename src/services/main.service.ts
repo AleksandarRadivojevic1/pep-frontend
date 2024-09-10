@@ -46,7 +46,7 @@ export async function useAxios(path: string, method = 'get', payload = {}) {
         throw new Error('CANT_REACH_BACKEND')
     }
 
-    if (rsp.status == 401){
+    if (rsp.status == 401) {
         window.location.href = "/login"
         return
 

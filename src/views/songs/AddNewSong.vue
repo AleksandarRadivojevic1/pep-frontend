@@ -18,7 +18,7 @@ onMounted(async () => {
   try {
     // Fetch all albums for the dropdown
     const albumResponse = await AlbumService.getAllAlbums();
-    albums.value = albumResponse.data;
+    albums.value = albumResponse?.data;
   } catch (error) {
     console.error('Error fetching albums:', error);
   }

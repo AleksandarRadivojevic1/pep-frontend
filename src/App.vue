@@ -17,7 +17,7 @@ function logout (){
   <div class="container">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <RouterLink class="navbar-brand" to="/">
+        <RouterLink class="navbar-brand" to="/reviews">
           <i class="fa-solid fa-compact-disc"></i> PSEP
         </RouterLink>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -27,7 +27,7 @@ function logout (){
         <div class="collapse navbar-collapse" id="navbarText" v-if="AuthService.hasAuth()">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <RouterLink class="nav-link" to="/">Reviews</RouterLink>
+              <RouterLink class="nav-link" to="/reviews">Reviews</RouterLink>
             </li>
             <li class="nav-item">
               <RouterLink class="nav-link" to="/artists">Artists</RouterLink>

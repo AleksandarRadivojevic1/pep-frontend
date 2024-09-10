@@ -27,7 +27,7 @@ const artists = ref<ArtistModel[]>([]);
 onMounted(async () => {
   try {
     const response = await ArtistService.getAllArtists();
-    artists.value = response.data;
+    artists.value = response?.data;
   } catch (error) {
     console.error('Error fetching artists:', error);
   }

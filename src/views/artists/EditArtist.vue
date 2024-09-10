@@ -13,7 +13,7 @@ const artistId = Number(route.params.id);
 onMounted(async () => {
   try {
     const response = await ArtistService.getArtistById(artistId);
-    artist.value = response.data;
+    artist.value = response?.data;
   } catch (error) {
     console.error('Error fetching artist:', error);
   }

@@ -10,9 +10,18 @@ const id = Number.parseInt(route.params.id as any);
 
 const albums = ref<AlbumModel | null>(null);
 
-AlbumService.getAlbumById(id).then(rsp => {
-    albums.value = rsp.data;
-});
+AlbumService.getAlbumById(id)
+  .then(rsp => {
+    if (rsp && rsp.data) {  
+      albums.value = rsp.data;
+    } else {
+      console.error('Error: No album data returned.');
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching album by ID:', error);
+  });
+
 
 function updateAlbum() {
     if (!albums.value) {

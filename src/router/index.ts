@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import AlbumView from '@/views/albums/AlbumView.vue'
 import ArtistView from '@/views/artists/ArtistView.vue'
 import EditAlbum from '@/views/albums/EditAlbum.vue'
@@ -10,15 +9,28 @@ import AddAlbum from '@/views/albums/AddAlbum.vue'
 import EditArtist from '@/views/artists/EditArtist.vue'
 import AddArtist from '@/views/artists/AddArtist.vue'
 import LoginView from '@/views/LoginView.vue'
+import ReviewView from '@/views/reviews/ReviewView.vue'
+import AddReview from '@/views/reviews/AddReview.vue'
+import EditReview from '@/views/reviews/EditReview.vue'
 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
+      path: '/reviews',
+      name: 'review',
+      component: ReviewView
+    },
+    {
+      path: '/reviews/new',
+      name: 'new-review',
+      component: AddReview
+    },
+    {
+      path: '/reviews/edit/:id',
+      name: 'edit-review',
+      component: EditReview
     },
     {
       path: '/login',

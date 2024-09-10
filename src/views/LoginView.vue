@@ -17,7 +17,7 @@ async function doLogin() {
         const rsp = await login(username.value, password.value)
         AuthService.saveAuth(rsp.data)
         router.push({
-            path: '/'
+            path: '/reviews'
         })
     } catch (e) {
         alert(e)

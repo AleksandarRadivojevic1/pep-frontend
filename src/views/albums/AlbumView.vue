@@ -4,7 +4,18 @@ import { AlbumService } from '@/services/album.service';
 import { ref } from 'vue';
 
 const albums = ref<AlbumModel[]>();
-AlbumService.getAllAlbums().then(rsp => albums.value = rsp.data);
+    AlbumService.getAllAlbums()
+  .then(rsp => {
+    if (rsp && rsp.data) {
+      albums.value = rsp.data;
+    } else {
+      console.error('Error: No data returned from the server.');
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching albums:', error);
+  });
+
 
 async function removeAlbum(model: AlbumModel) {
     await AlbumService.deleteAlbum(model.albumId);

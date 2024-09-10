@@ -16,7 +16,7 @@ const songId = Number(route.params.id);
 onMounted(async () => {
   try {
     const response = await SongService.getSongById(songId);
-    if (response.data) {
+    if (response && response.data) {
       if (!response.data.album) {
         response.data.album = { albumId: 0 }; 
       }
@@ -24,7 +24,9 @@ onMounted(async () => {
     }
     // Fetching albums for dropdown
     const albumDropdown = await AlbumService.getAllAlbums();
-    albums.value = albumDropdown.data;
+    if (albumDropdown && albumDropdown.data) {
+      albums.value = albumDropdown.data;
+    }
   } catch (error) {
     console.error('Error fetching song or album data:', error);
   }
